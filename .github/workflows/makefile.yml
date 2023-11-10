@@ -50,6 +50,7 @@ jobs:
       run: |
           cmake -S . -B build-dbus-runtime -D GTEST_ROOT=/usr/src/googletest -DCMAKE_PREFIX_PATH=install
           cmake --build build-dbus-runtime --target build_tests
+          cmake --install build-dbus-runtime --strip
 
     - name: "Run tests"
       run: |
