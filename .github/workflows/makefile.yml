@@ -54,7 +54,7 @@ jobs:
 
     - name: "Run tests"
       run: |
-        ls -l install/lib
-        export LD_LIBRARY_PATH=install/lib
-        export COMMONAPI_CONFIG=src/test/commonapi-dbus.ini
+        ls -l ${{ github.workspace }}/install/lib
+        export LD_LIBRARY_PATH=${{ github.workspace }}/install/lib
+        export COMMONAPI_CONFIG=${{ github.workspace }}/src/test/commonapi-dbus.ini
         env -C build-dbus-runtime ctest -V
