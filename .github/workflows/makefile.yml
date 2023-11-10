@@ -43,12 +43,12 @@ jobs:
 
     - name: "Build capicxx-core-runtime"
       run: |
-        cmake -S capicxx-core-runtime -B build-core-runtime -DCMAKE_INSTALL_PREFIX=install
+        cmake -S capicxx-core-runtime -B build-core-runtime -D CMAKE_INSTALL_PREFIX=install
         cmake --build build-core-runtime --target install      
 
     - name: "Build capicxx-dbus-runtime"
       run: |
-          cmake -S . -B build-dbus-runtime -D GTEST_ROOT=/usr/src/googletest -DCMAKE_PREFIX_PATH=install
+          cmake -S . -B build-dbus-runtime -D GTEST_ROOT=/usr/src/googletest -D CMAKE_PREFIX_PATH=install -D CMAKE_INSTALL_PREFIX=install
           cmake --build build-dbus-runtime --target build_tests
           cmake --install build-dbus-runtime --strip
 
