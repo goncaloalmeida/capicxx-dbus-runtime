@@ -52,4 +52,8 @@ jobs:
           cmake --build build-dbus-runtime --target build_tests
 
     - name: "Run tests"
-      run: env -C build-dbus-runtime ctest -V
+      run: |
+        ls -l install
+        export LD_LIBRARY_PATH=install/patched-dbus/lib
+        export COMMONAPI_CONFIG=src/test/commonapi-dbus.ini
+        env -C build-dbus-runtime ctest -V
