@@ -49,10 +49,7 @@ jobs:
     - name: "Build capicxx-dbus-runtime"
       run: |
           cmake -S . -B build-dbus-runtime -D GTEST_ROOT=/usr/src/googletest -DCMAKE_PREFIX_PATH=install
-          cmake --build build-dbus-runtime
+          cmake --build build-dbus-runtime --target build_tests
 
     - name: "Run tests"
-      run: |
-          cmake -S . -B build-dbus-runtime -DCMAKE_PREFIX_PATH=install
-          cmake --build build-dbus-runtime --target build_tests
-          dbus/build-dbus-runtime ctest -V
+      run: build-dbus-runtime ctest -V
