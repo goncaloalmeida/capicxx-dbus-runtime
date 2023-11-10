@@ -53,7 +53,7 @@ jobs:
 
     - name: "Run tests"
       run: |
-        ls -l install
-        export LD_LIBRARY_PATH=install/patched-dbus/lib
+        ls -l install/lib
+        export LD_LIBRARY_PATH=install/lib
         export COMMONAPI_CONFIG=src/test/commonapi-dbus.ini
         env -C build-dbus-runtime ctest -V
